@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Pagination from "react-js-pagination";
 import ButtonInfo from './ButtonInfo.js';
+import ButtonFav from './ButtonFav.js';
+import Favorite from './Favorite.js';
 import $ from 'jquery';
 
 const maxResults = 12;
@@ -13,6 +15,7 @@ class BookImg extends Component{
 		let name = this.props.alt;
 
 		this.state = {thumb: thumb, name: name};
+
 	}
 	render(){		
 		return(
@@ -62,12 +65,13 @@ class List extends Component{
 			this._ajaxRequire(nextProps.value,nextProps.page);	
 		}else{
 			this.setState({data: '', total: 0});			
-		}
+		}		
 	}
 	render(){
 		if(this.state.data){
 			var books = this.state.data.map((book) =>
-				<div className="col-md-3" key={book.id}>				
+				<div className="col-md-3" key={book.id}>			
+					<ButtonFav idBook={book.id} />
 					<BookImg img={book.volumeInfo.imageLinks} alt={book.volumeInfo.title} />
 					<h2>{book.volumeInfo.title}</h2>
 					<h3>{book.volumeInfo.authors}</h3>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import List from './List.js';
-
-
+import Favorite from './Favorite.js';
 
 class Main extends Component{
 	constructor(props){
@@ -23,23 +22,28 @@ class Main extends Component{
 	render(){
 		return(
 			<main>
-				<div className="container">
-					<h1>Books</h1>
-					<form method="POST" role="form" onSubmit={this._handleSubmit}>
-						<div className="input-group">
-							<label htmlFor="inputSearch" className="sr-only">label</label>
-							<input type="text" onKeyUp={this._handleSubmit} className="form-control" id="inputSearch" placeholder="Search books..." value={this.state.value} onChange={this._handleChange}  />
-							<span className="input-group-btn">
-								<button type="submit" className="btn btn-primary">
-									<span className="glyphicon glyphicon-search"></span>
-								</button>
-							</span>
-						</div>												
-					</form>
-				</div>
-				<div className="container">	
-					<List value={this.state.value} page="0" />
-				</div>
+				<section>
+					<div className="container">
+						<h1>Books</h1>
+						<form method="POST" role="form" onSubmit={this._handleSubmit}>
+							<div className="input-group">
+								<label htmlFor="inputSearch" className="sr-only">label</label>
+								<input type="text" onKeyUp={this._handleSubmit} className="form-control" id="inputSearch" placeholder="Search books..." value={this.state.value} onChange={this._handleChange}  />
+								<span className="input-group-btn">
+									<button type="submit" className="btn btn-primary">
+										<span className="glyphicon glyphicon-search"></span>
+									</button>
+								</span>
+							</div>												
+						</form>
+					</div>
+					<div className="container">	
+						<List value={this.state.value} page="0" />
+					</div>
+				</section>
+				<aside>
+					<Favorite teste='teste' />
+				</aside>
 			</main>
 		);
 	}

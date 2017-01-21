@@ -8,7 +8,8 @@ class Header extends Component{
 
 	render(){
 		return(
-			<header>
+			<header>			
+				{/*
 				<nav className="navbar navbar-default">
 					<div className="btn-group pull-right" role="group" aria-label="Menu">
 						<button className="btn btn-default btn-lg">
@@ -18,6 +19,7 @@ class Header extends Component{
 						<button className="btn btn-default btn-lg">Sobre</button>
 					</div>
 				</nav>
+				*/}
 			</header>
 		);
 	}
